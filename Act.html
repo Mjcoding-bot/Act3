@@ -1,0 +1,125 @@
+<html>
+    <head>
+        <title>Activity</title>
+        <style>
+            Body {
+                background-image: url("images/bgg.jpg");
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            h1 {
+                font-size: 50px;
+                color: purple;
+            }
+            .container {
+                text-align: center;
+                justify-content: center;
+                margin-top: 180px;
+            }
+            .text {
+                border: 3px solid #942c92;
+                border-radius: 20px;
+                background-color: #f3e1f5;
+                padding: 10px 20px;
+                display: inline-block;
+            }
+            .photo img {
+                margin-top: 20px;
+                width: 300px;
+                height: auto;
+                border-radius: 10px;
+                border: 5px solid #ba45b8;
+            }
+            .buttons {
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+            }
+            .button {
+                background-color: #d32f2f;
+                color: white;
+                padding: 15px 30px;
+                font-size: 1.2em;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                margin: 10px;
+            }
+            .button:hover {
+                background-color: #b71c1c;
+            }
+        </style>
+    </head>
+    <body>
+        <audio id="backgroundMusic" loop>
+            <source src="images/valentine.mp3" type="audio/mp3">
+        </audio>
+
+        <div class="container">
+            <div class="text">
+                <h1 id="valentineText">Will you be my Valentine?</h1>
+            </div>
+            <div class="photo">
+                <img id="photo" src="images/dazz.jpg" alt="Our Photo">
+            </div>
+            <div class="buttons">
+                <button class="button" onclick="showResponse()">Yes</button>
+                <button id="noButton" class="button" onclick="moveButtonAndChangePhoto()">No</button>
+            </div>
+        </div>
+
+        <script>
+            let currentIndex = 0;
+            const photos = [
+                "images/dazz.jpg", 
+                "images/pic 1.jpg",
+                "images/pic 2.jpg",
+                "images/pic 3.jpg",
+                "images/pic 4.jpg",
+                "images/pic 5.jpg",
+                "images/pic 6.jpg",
+                "images/pic 7.jpg",
+                "images/pic 8.jpg",
+                "images/pic 9.jpg",
+                "images/pic 10.jpg",
+                "images/pic 11.jpg",
+                "images/pic 12.jpg",
+                "images/pic 13.jpg",
+                "images/pic 17.jpg",
+                "images/pic 18.jpg",
+                "images/pic 19.jpg",
+                "images/pic 20.jpg",
+                "images/pic 21.jpg",
+            ];
+
+            window.addEventListener('load', () => {
+               const audio = document.getElementById('backgroundMusic');
+               audio.play();
+            });
+
+            function showResponse() {
+                document.getElementById('valentineText').innerText = "See you on February 15!";
+            }
+
+            function moveButtonAndChangePhoto() {
+                moveButton();
+                changePhoto();
+            }
+
+            function moveButton() {
+                const noButton = document.getElementById('noButton');
+                const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+                const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+
+                noButton.style.position = 'absolute'; 
+                noButton.style.left = `${x}px`;
+                noButton.style.top = `${y}px`;
+            }
+
+            function changePhoto() {
+                currentIndex = (currentIndex + 1) % photos.length; 
+                document.getElementById('photo').src = photos[currentIndex];
+            }
+        </script>
+    </body>
+</html

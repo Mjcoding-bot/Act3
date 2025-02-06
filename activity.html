@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>Activity</title>
+        <style>
+
+            Body{
+
+                background-image: url("images/bgg.jpg");
+                font-family: Arial, Helvetica, sans-serif;
+        
+            }
+            h1{
+                color: purple;
+                font-size: 50x;
+            }
+            .container{
+                align-items: center;
+                margin-top: 180px;
+                text-align: center;
+            }
+            .url{
+                border: 3px solid #942c92;
+                border-radius: 20px;
+                background-color: #f3e1f5;
+                padding: 5px;
+                display: inline-block;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+        <div class="gif">
+            <img src="images/gif.gif">
+        </div>
+        <div class="url">
+            <h1>
+                <a href="Act.html" onclick="playMusic();">Open me</a>
+            </h1>
+        </div>
+        </div>
+
+        <audio id="backgroundMusic" loop>
+            <source src="images/valentine.mp3" type="audio/mp3">
+        </audio>
+
+
+        <script>
+            function playMusic() {
+                const audio = new Audio('images/valentine.mp3');
+                audio.play();
+            }
+        </script>
+
+    </body>
+</html>
